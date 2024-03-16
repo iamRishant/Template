@@ -65,62 +65,12 @@
     // ------------------------------------------------------------------------------------
 
 
-    void dpSolve(set<int> &ans,int x,vector<pair<int,string>> q,int index,int n){
-
-        if(index==q.size()){
-            ans.insert(x+1);
-            return ;
-        }
-
-
-        int r=q[index].first;
-        string dir=q[index].second[0];
-        if(dir=='0'){
-            x=(x+r)%n;
-            dpSolve(ans,x,q,index+1,n);
-        }
-        else if(dir=='1'){
-            x=
-            dpSolve(ans,x,q,index+1,n);
-        }
-        else{
-            int clock=(x+r)%n;
-            int anti=(x-r)%n;
-            if(anti<0) anti=anti+n;
-
-            dpSolve(ans,clock,q,index+1,n);
-            dpSolve(ans,anti,q,index+1,n);
-        }
-
-    }
-
     void solve(){
         // if (fopen("angry.in", "r")) {
         // 	freopen("angry.in", "r", stdin);
         // 	freopen("angry.out", "w", stdout);
         // }
-        int n,q,k;
-        cin>>n>>q>>x;
-        x=x-1;
-        // vector<int> arr(n);
-        // for(int i=0;i<n;i++) arr[i]=i;
-        vector<pair<int,string>> queries;
-
-        while(q--){
-            int r;
-            cin>>r;
-            string s;
-            cin>>s;
-            queries.push_back({r,s});
-        }
-        set<int> ans;
-        // if n=6 then 0 1 2 3 4 5 last me add krr denge 1
-        dpSolve(ans,x-1,queries,0,n);
-        cout<<s.size()<<endl;
-        for(auto it:ans){
-            cout<<it<<" ";
-        }
-        cout<<endl;
+        
 
 
         
